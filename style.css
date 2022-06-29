@@ -1,0 +1,70 @@
+* {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+}
+
+@font-face {
+          font-family: 'open-sans';
+          /* font-style: light; */
+          font-weight: 400;
+          src: url('./public/Open_Sans/open_sans1.ttf') format('truetype');
+}
+
+body {
+          /* background-color: aqua; */
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-family: 'open-sans';
+}
+
+.List{
+          width: 70%;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          /* background-color: red; */
+          box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+          margin-bottom: 1.5rem;
+
+}
+
+.Add{
+          width: 70%;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+          display: flex;
+          justify-content: end;
+          align-items: center;
+          padding: 1.5rem;
+          /* background-color: blue; */
+
+}
+
+.Add_button{
+          font-family: 'open-sans', Arial, sans-serif;
+          font-size: 19px;
+          color: #726958;
+          padding-inline: 40px;
+          padding-block: 12px;
+          background-color: #f9a711;
+          box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+          border-radius: 7px;
+
+}
+
+.table-container{
+          background-color: red;
+          width: 100%;
+          margin: 1.5rem;
+}
+
+.table-content{
+          padding-block: 1rem;
+          background-color: #f9a711;
+}
