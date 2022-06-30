@@ -71,6 +71,7 @@ const displayUsers = () => {
           users.map((user, index) => {
                     var li = document.createElement("li");
                     li.setAttribute("class", "table-content");
+                    li.setAttribute("key", index);
                     Object.keys(user).map((key, index) => {
                               var data_container = document.createElement("div");
                               var data = document.createElement("div");
@@ -112,11 +113,14 @@ const displayUsers = () => {
 displayUsers();
 
 const removeButton = document.querySelectorAll('.data-button');
+console.log(removeButton);
 removeButton.forEach(button => {
 
           button.addEventListener('click', function (event) {
                     var row = event.target.parentElement.parentElement.parentElement;
-                    console.log(row);
+                    console.log(row.getAttribute('key'));
+                    users.splice(row.getAttribute('key'), 1);
+                    console.log(users);
                     row.remove();
           })
 })
