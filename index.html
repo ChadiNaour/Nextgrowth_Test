@@ -4,64 +4,105 @@
 <head>
           <meta charset="UTF-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <meta name="viewport" content="widdiv=device-widdiv, initial-scale=1.0">
           <link rel="stylesheet" href="./style.css">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
                     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
                     crossorigin="anonymous" referrerpolicy="no-referrer" />
-          <title>NextgrowthTest</title>
+          <title>NextgrowdivTest</title>
 </head>
 
 <body>
           <div class="List">
-                    <ul class="table-container">
+                    <ul class="table-container" id="table-container">
                               <li class="table-head">
-                                        <th>ID</th>
-                                        <th>Date de création</th>
-                                        <th>Etat</th>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>Nom d'utilisateur</th>
-                                        <th>Matricule</th>
-                                        <th>Action</th>
+                                        <div class="data-container">
+                                                  <div class="data">ID</div>
+                                        </div>
+                                        <div class="data-container">
+                                                  <div class="data">Date de création</div>
+                                        </div>
+                                        <div class="data-container-bagde">
+                                                  <div class="data">Etat</div>
+                                        </div>
+                                        <div class="data-container">
+                                                  <div class="data">Nom</div>
+                                        </div>
+                                        <div class="data-container">
+                                                  <div class="data">Prénom</div>
+                                        </div>
+                                        <div class="data-container">
+                                                  <div class="data">Nom d'utilisateur</div>
+                                        </div>
+                                        <div class="data-container">
+                                                  <div class="data">Matricule</div>
+                                        </div>
+                                        <div class="data-container-bagde">
+                                                  <div class="data">Action</div>
+                                        </div>
                               </li>
-                              <li class="table-content">
-                                        <td>1</td>
-                                        <td>01/01/2019</td>
-                                        <td>Actif</td>
-                                        <td>Dupont</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                              </li>
-                              <li class="table-content">
-                                        <td>1</td>
-                                        <td>01/01/2019</td>
-                                        <td>Actif</td>
-                                        <td>Dupont</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                              </li>
-                              <li class="table-content">
-                                        <td>1</td>
-                                        <td>01/01/2019</td>
-                                        <td>Actif</td>
-                                        <td>Dupont</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                                        <td>Jean</td>
-                              </li>
+                              <!-- <li class="table-content">
+                                        <div class="data-container"><div class="data">1</div></div>
+                                        <div class="data-container"><div class="data">01/01/2019</div></div>
+                                        <div class="data-container-bagde"><div class="Actif">Actif</div></div>
+                                        <div class="data-container"><div class="data">Dupont</div></div>
+                                        <div class="data-container"><div class="data">Jean</div></div>
+                                        <div class="data-container"><div class="data">Jean</div></div>
+                                        <div class="data-container"><div class="data">Jean</div></div>
+                                        <div class="data-container-bagde"><div class="data">Jean</div></div>
+                              </li> -->
                     </ul>
           </div>
           <div class="Add">
-                    <div class="Add_button">Ajouter utilisateur</div>
+                    <div data-modal-target="#modal" class="Add_button">Ajouter utilisateur</div>
           </div>
-          <!-- <h1>Hello World</h1> -->
-          <!-- <button>start<i class="fa-solid fa-play"></i></button> -->
+          <div class="modal" id="modal">
+                    <div class="modal-header">
+                              <div class="title">Ajout dutilisateur</div>
+                              <button data-close-button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                              <div class="modal-body-form">
+                                        <form>
+                                                  <div class="form-input-line">
+                                                            <div>
+                                                                      <label for="fname">Nom</label>
+                                                                      <input name="nom" type="text" required>
+                                                            </div>
+                                                            <div>
+                                                                      <label for="fname">Prénom</label>
+                                                                      <input name="prenom" type="text" required>
+                                                            </div>
+                                                            <div>
+                                                                      <label for="fname">Etat</label>
+                                                                      <input name="etat" type="text" required>
+                                                            </div>
+                                                  </div>
+                                                  <div class="form-input-line">
+                                                            <div>
+                                                                      <label for="fname">Nom d'utilisateur</label>
+                                                                      <input name="username" type="text" required>
+                                                            </div>
+                                                            <div>
+                                                                      <label for="fname">Date de création</label>
+                                                                      <input name="date" type="text" required>
+                                                            </div>
+                                                  </div>
+                                                  <div class="form-input-line">
+                                                            <div>
+                                                                      <label for="fname">Matricule</label>
+                                                                      <input name="mac" type="text" required>
+                                                            </div>
+                                                  </div>
+                              </div>
+                              <div class="modal-button-container">
+                                        <Button type="submit" class="Add_button">Enregistrer</Button>
+
+                              </div>
+                              </form>
+                    </div>
+          </div>
+          <div class="overlay" id="overlay"></div>
           <script src="./index.js"></script>
 </body>
 
