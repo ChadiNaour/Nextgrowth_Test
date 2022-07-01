@@ -30,30 +30,7 @@ let users = [
 
 var form = document.querySelector('form');
 
-document.addEventListener('submit', function (event) {
 
-          // Prevent form from submitting to the server
-          event.preventDefault();
-          var divs = document.querySelectorAll('.table-content');
-          divs.forEach(div => {
-                    div.remove();
-          });
-          // Do some stuff...
-          var data = serializeForm(form)
-          users.push({
-                    id: JSON.stringify(Math.floor(Math.random() * 1000000000)),
-                    createdDate: data.date,
-                    status: data.etat,
-                    firstName: data.prenom,
-                    lastName: data.nom,
-                    userName: data.username,
-                    registrationNumber: data.mac,
-          })
-          console.log(users);
-          displayUsers();
-          closeModal(modal);
-
-});
 
 var serializeForm = function (form) {
           var obj = {};
@@ -66,8 +43,7 @@ var serializeForm = function (form) {
 
 var myList = document.getElementById("table-container");
 
-const displayUsers = () => {
-          
+const displayUsers = () => { 
           users.map((user, index) => {
                     var li = document.createElement("li");
                     li.setAttribute("class", "table-content");
@@ -76,7 +52,7 @@ const displayUsers = () => {
                               var data_container = document.createElement("div");
                               var data = document.createElement("div");
                               if (key == "status") {
-                                        data_container.setAttribute('class', 'data-container-bagde');
+                                        data_container.setAttribute('class', 'data-container-badge');
                                         data.appendChild(document.createTextNode(user[key].split('T')[0].replaceAll("-", "/")));
                                         if (user[key] == "En validation")
                                                   data.setAttribute('class', 'Actif on-validation');
@@ -99,7 +75,7 @@ const displayUsers = () => {
                               li.appendChild(data_container);
                     })
                     var data_container = document.createElement("div");
-                    data_container.setAttribute('class', 'data-container-bagde');
+                    data_container.setAttribute('class', 'data-container-trash');
                     var data = document.createElement("button");
                     data.setAttribute('class', 'data-button');
                     data.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
@@ -112,22 +88,46 @@ const displayUsers = () => {
 }
 displayUsers();
 
-const removeButton = document.querySelectorAll('.data-button');
-console.log(removeButton);
-removeButton.forEach(button => {
-
-          button.addEventListener('click', function (event) {
-                    var row = event.target.parentElement.parentElement.parentElement;
-                    console.log(row.getAttribute('key'));
-                    users.splice(row.getAttribute('key'), 1);
-                    console.log(users);
-                    row.remove();
-          })
-})
-
 const openModalButtons = document.querySelectorAll('[data-modal-target]');
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
+let removeButton = document.querySelectorAll('.data-button');
+
+document.addEventListener('submit', function (event) {
+          // Prevent form from submitting to the server
+          event.preventDefault();
+          var divs = document.querySelectorAll('.table-content');
+          divs.forEach(div => {
+                    div.remove();
+          });
+          // Do some stuff...
+          var data = serializeForm(form)
+          users.push({
+                    id: JSON.stringify(Math.floor(Math.random() * 1000000000)),
+                    createdDate: data.date,
+                    status: data.etat,
+                    firstName: data.prenom,
+                    lastName: data.nom,
+                    userName: data.username,
+                    registrationNumber: data.mac,
+          })
+          console.log(users);
+          displayUsers();
+          closeModal(modal);
+          removeButton = document.querySelectorAll('.data-button');
+          console.log(removeButton)
+          removeButton.forEach(button => {
+                    button.addEventListener('click', function (event) {
+                              var row = event.target.parentElement.parentElement.parentElement;
+                              console.log("row",row);
+                              console.log("key",row.getAttribute('key'));
+                              users.splice(row.getAttribute('key'), 1);
+                              console.log("users",users);
+                              row.remove();
+                    })
+          })
+
+});
 
 openModalButtons.forEach(button => {
           button.addEventListener('click', () => {
@@ -161,3 +161,14 @@ function closeModal(modal) {
           modal.classList.remove('active')
           overlay.classList.remove('active')
 }
+
+removeButton.forEach(button => {
+          button.addEventListener('click', function (event) {
+                    var row = event.target.parentElement.parentElement.parentElement;
+                    console.log("row",row);
+                    console.log("key",row.getAttribute('key'));
+                    users.splice(row.getAttribute('key'), 1);
+                    console.log("users",users);
+                    row.remove();
+          })
+})
